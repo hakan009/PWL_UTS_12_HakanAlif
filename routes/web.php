@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -22,7 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+
+// Route::get('/product', [App\Http\Controllers\BukuController::class, 'index'])->name('product');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index']) -> name('home');
@@ -30,4 +35,9 @@ Route::get('/pengalaman', [KuliahController::class, 'kuliah']) -> name('pengalam
 Route::prefix('profil') -> group (function () {
     Route::get('/alif', [ProfileController::class, 'alif']);
 }) -> name('profil');
-Route::get('/product', [ProductController::class, 'tampil']) -> name('product');
+// Route::get('/product', [ProductController::class, 'tampil']) -> name('product');
+
+Route::get('/search',[BukuController::class, 'search'])->name('search');
+
+
+Route::resource('product', BukuController::class);

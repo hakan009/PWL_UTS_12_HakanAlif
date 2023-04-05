@@ -90,12 +90,6 @@
                                         <p>Hakan Alif</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/profil/andika" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Andika Ainur</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">

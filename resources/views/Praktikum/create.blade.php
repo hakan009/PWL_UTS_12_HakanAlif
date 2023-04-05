@@ -1,6 +1,6 @@
-@extends('mahasiswas.layout')
- 
-@section('content')
+@extends('layouts.app')
+
+ @section('content')
  
 <div class="container mt-5">
  
@@ -22,38 +22,39 @@
                 </div>
                 @endif
 
-                <form method="post" action="{{ route('buku.store') }}" id="myForm">
+                <form method="post" action="{{ route('product.store') }}" id="myForm">
                 @csrf
-                    <div class="form-group">
-                        <label for="Nim">Nim</label> 
-                        <input type="text" name="Nim" class="form-control" id="Nim" aria-describedby="Nim" > 
+                <div class="form-group">
+                        <label for="kode_buku">kode_buku</label> 
+                        <input type="kode_buku" name="kode_buku" class="form-control" id="Nikode_bukum" aria-describedby="kode_buku" > 
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Nama</label> 
-                        <input type="Nama" name="Nama" class="form-control" id="Nama" aria-describedby="Nama" > 
+                        <label for="judul">Nama</label> 
+                        <input type="judul" name="judul" class="form-control" id="judul" aria-describedby="judul" > 
                     </div>
                     <div class="form-group">
                         <label for="Kelas">Kelas</label> 
                         <input type="Kelas" name="Kelas" class="form-control" id="Kelas" aria-describedby="password" > 
                     </div>
                     <div class="form-group">
-                        <label for="Jurusan">Jurusan</label> 
-                        <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" aria-describedby="Jurusan" > 
+                        <label for="pengarang">pengarang</label> 
+                        <input type="pengarang" name="pengarang" class="form-control" id="pengarang" aria-describedby="pengarang" > 
                     </div>
                     <div class="form-group">
-                        <label for="No_Handphone">No_Handphone</label> 
+                        <label for="jenis_buku">jenis_buku</label> 
  
-                        <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone" aria-describedby="No_Handphone" > 
+                        <input type="jenis_buku" name="jenis_buku" class="form-control" id="jenis_buku" aria-describedby="jenis_buku" > 
                     </div>
                     <div class="form-group">
-                        <label for="Email">Email</label> 
-                        <input type="Email" name="Email" class="form-control" id="Email" aria-describedby="Email" > 
+                        <label for="harga">harga</label> 
+                        <input type="harga" name="harga" class="form-control" id="harga" aria-describedby="harga" > 
                     </div>
                     <div class="form-group">
-                        <label for="Tanggal_Lahir">Tanggal_Lahir</label> 
-                        <input type="Tanggal_Lahir" name="Tanggal_Lahir" class="form-control" id="Tanggal_Lahir" aria-describedby="Tanggal_Lahir" > 
+                        <label for="qty">qty</label> 
+                        <input type="qty" name="qty" class="form-control" id="qty" aria-describedby="qty" > 
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ route('product.index') }}" class="btn btn-danger" role="button" aria-disabled="true" style="margin-left:5px">Kembali</a>
                     </form>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-@extends('mahasiswas.layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -7,13 +7,12 @@
     <div class="row justify-content-center align-items-center">
         <div class="card" style="width: 24rem;">
             <div class="card-header">
-                Edit Mahasiswa
+                Edit Data Buku
             </div>
             <div class="card-body">
                 @if ($errors->any())
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your i
-                    nput.<br><br>
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -21,46 +20,41 @@
                     </ul>
                 </div>
                 @endif
-                <form method="post" action="{{ route('mahasiswa.update', $Mahasiswa->Nim) }}" id="myForm">
+                <form method="post" action="{{ route('product.update', $data_buku->kode_buku) }}" id="myForm">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="Nim">Nim</label>
-                        <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->Nim }}"
-                            aria-describedby="Nim">
+                        <label for="kode_buku">Kode Buku</label>
+                        <input type="text" name="kode_buku" class="form-control" id="kode_buku" value="{{ $data_buku->kode_buku }}"
+                            aria-describedby="kode_buku">
                     </div>
                     <div class="form-group">
-                        <label for="Nama">Nama</label>
-                        <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $Mahasiswa->Nama }}"
-                            aria-describedby="Nama">
+                        <label for="judul">Judul</label>
+                        <input type="text" name="judul" class="form-control" id="judul" value="{{ $data_buku->judul }}"
+                            aria-describedby="judul">
                     </div>
                     <div class="form-group">
-                        <label for="Kelas">Kelas</label>
-                        <input type="Kelas" name="Kelas" class="form-control" id="Kelas" value="{{ $Mahasiswa->Kelas }}"
-                            aria-describedby="Kelas">
+                        <label for="pengarang">Pengarang</label>
+                        <input type="pengarang" name="pengarang" class="form-control" id="pengarang" value="{{ $data_buku->pengarang }}"
+                            aria-describedby="pengarang">
                     </div>
                     <div class="form-group">
-                        <label for="Jurusan">Jurusan</label>
-                        <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan"
-                            value="{{ $Mahasiswa->Jurusan }}" aria-describedby="Jurusan">
+                        <label for="jenis_buku">Jenis Buku</label>
+                        <input type="jenis_buku" name="jenis_buku" class="form-control" id="jenis_buku"
+                            value="{{ $data_buku->jenis_buku }}" aria-describedby="jenis_buku">
                     </div>
                     <div class="form-group">
-                        <label for="No_Handphone">No_Handphone</label>
-                        <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone"
-                            value="{{ $Mahasiswa->No_Handphone }}" aria-describedby="No_Handphone">
+                        <label for="harga">Harga</label>
+                        <input type="harga" name="harga" class="form-control" id="harga"
+                            value="{{ $data_buku->harga }}" aria-describedby="harga">
                     </div>
                     <div class="form-group">
-                        <label for="Email">Email</label>
-                        <input type="Email" name="Email" class="form-control" id="Email"
-                            value="{{ $Mahasiswa->Email }}" aria-describedby="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="Tanggal_Lahir">Tanggal_Lahir</label>
-                        <input type="Tanggal_Lahir" name="Tanggal_Lahir" class="form-control" id="Tanggal_Lahir"
-                            value="{{ $Mahasiswa->Tanggal_Lahir }}" aria-describedby="Tanggal_Lahir">
+                        <label for="qty">Qty</label>
+                        <input type="qty" name="qty" class="form-control" id="qty"
+                            value="{{ $data_buku->qty }}" aria-describedby="qty">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="{{ route('mahasiswa.index') }}" class="btn btn-danger" role="button" aria-disabled="true" style="margin-left:5px">Kembali</a>
+                    <a href="{{ route('product.index') }}" class="btn btn-danger" role="button" aria-disabled="true" style="margin-left:5px">Kembali</a>
                 </form>
             </div>
         </div>

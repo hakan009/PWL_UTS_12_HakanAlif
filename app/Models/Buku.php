@@ -10,6 +10,7 @@ class Buku extends Model
     protected $table="data_buku"; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
     public $timestamps= false; 
     protected $primaryKey = 'kode_buku'; // Memanggil isi DB Dengan primarykey
+    public $incrementing = false;
     /**
      * The attributes that are mass assignable.
      *

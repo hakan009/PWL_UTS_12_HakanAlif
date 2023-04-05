@@ -51,7 +51,7 @@ class BukuController extends Controller
 //fungsi eloquent untuk menambah data
     Buku::create($request->all());
 //jika data berhasil ditambahkan, akan kembali ke halaman utama
-    return redirect()->route('Praktikum.product')
+    return redirect()->route('product.index')
     ->with('success', 'Data Buku Berhasil Ditambahkan');
     }
 
@@ -63,8 +63,8 @@ class BukuController extends Controller
      */
     public function show($kode_buku)
     {
-        $Buku = Buku::find($kode_buku);
-        return view('Praktikum.detail', compact('Buku'));
+        $data_buku = Buku::find($kode_buku);
+        return view('Praktikum.detail', compact('data_buku'));
     }
 
     /**
@@ -76,8 +76,8 @@ class BukuController extends Controller
     public function edit($kode_buku)
     {
         //menampilkan detail data dengan menemukan berdasarkan Nim Mahasiswa untuk diedit
-        $Buku = Buku::find($kode_buku);
-        return view('Praktikum.edit', compact('Buku'));
+        $data_buku = Buku::find($kode_buku);
+        return view('Praktikum.edit', compact('data_buku'));
     }
 
     /**
@@ -101,7 +101,7 @@ class BukuController extends Controller
             //fungsi eloquent untuk mengupdate data inputan kita
             Buku::find($kode_buku)->update($request->all());
             //jika data berhasil diupdate, akan kembali ke halaman utama
-            return redirect()->route('Praktikum.product')
+            return redirect()->route('product.index')
             ->with('success', 'Data Buku Berhasil Diupdate');
     }
 
@@ -111,11 +111,11 @@ class BukuController extends Controller
      * @param  \App\Models\Buku  $buku
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buku $kode_buku)
+    public function destroy($kode_buku)
     {
         //fungsi eloquent untuk menghapus data
         Buku::find($kode_buku)->delete();
-        return redirect()->route('Praktikum.product')
+        return redirect()->route('product.index')
         -> with('success', 'Data Buku Berhasil Dihapus');
     }
 
